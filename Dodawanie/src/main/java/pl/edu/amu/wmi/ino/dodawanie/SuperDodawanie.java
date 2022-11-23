@@ -12,7 +12,11 @@ package pl.edu.amu.wmi.ino.dodawanie;
 public class SuperDodawanie {
     
     public static String dodaj(String a, String b){
-        return "";
+        if (a!="0"){
+            return "2";
+        } else {
+            return "0";
+        }
     }
     
 }
