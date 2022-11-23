@@ -38,8 +38,8 @@ public class SuperDodawanieTest {
         System.out.println("dodaj");
         
         Random r = new Random();
-        int aa = r.nextInt(10);
-        int bb = r.nextInt(10);
+        int aa = r.nextInt(12);
+        int bb = r.nextInt(12);
         
         String a = new Integer(aa).toString();
         String b = new Integer(bb).toString();;
