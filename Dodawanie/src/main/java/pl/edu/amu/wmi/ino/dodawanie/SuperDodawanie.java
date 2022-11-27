@@ -10,13 +10,12 @@ package pl.edu.amu.wmi.ino.dodawanie;
  * @author bikol
  */
 public class SuperDodawanie {
-    
-    public static String dodaj(String a, String b){
-        if (a!="0"){
-            return "2";
-        } else {
-            return "0";
-        }
+
+    public static String dodaj(String a, String b) {
+        Integer x = Integer.parseInt(a);
+        Integer y = Integer.parseInt(b);
+        Integer ans = x + y;
+        return ans.toString();
     }
     
 }
