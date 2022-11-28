@@ -47,5 +47,41 @@ public class SuperDodawanieTest {
         String result = SuperDodawanie.dodaj(a, b);
         assertEquals(expResult, result);
     }
+
+    @Test
+    public void testDodaj4(){ // float + float
+        System.out.println("dodaj");
+        Random r = new Random();
+        float aa = r.nextFloat();
+        float bb = r.nextInt();
+        String a = new Float(aa).toString();
+        String b = new Float(bb).toString();
+        String expResult = new Float(aa + bb).toString();
+        String result = SuperDodawanie.dodaj(a, b);
+        assertEquals(expResult, result);
+    }
+
+    @Test
+    public void testDodaj5(){ // string + string
+        System.out.println("dodaj");
+        String alphabet = "abcdefghijklmnopqrstuvwxyz";
+        Random r = new Random();
+        StringBuilder a = new StringBuilder();
+        StringBuilder b = new StringBuilder();
+        int length = 5;
+        for(int i = 0; i < length; i++){
+            int index = r.nextInt(alphabet.length());
+            char rChar = alphabet.charAt(index);
+            a.append(rChar);
+        }
+        for(int i = 0; i < length; i++){
+            int index = r.nextInt(alphabet.length());
+            char rChar = alphabet.charAt(index);
+            b.append(rChar);
+        }
+        String expResult = a.toString() + b.toString();
+        String result = SuperDodawanie.dodaj(a.toString(), b.toString());
+        assertEquals(expResult, result);
+    }
     
 }
