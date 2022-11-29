@@ -1,5 +1,6 @@
 package pl.edu.amu.wmi.ino.dodawanie;
 
+import java.beans.Transient;
 import java.util.Random;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
@@ -84,4 +85,21 @@ public class SuperDodawanieTest {
         assertEquals(expResult, result);
     }
     
+    @Test
+    public void testDodaj6(){
+        String result = SuperDodawanie.dodaj(null, "1");
+        assertEquals(result, null);
+    }
+
+    @Test
+    public void testDodaj7(){
+        String result = SuperDodawanie.dodaj("xd", null);
+        assertEquals(result, null);
+    }
+
+    @Test
+    public void testDodaj8(){
+        String result = SuperDodawanie.dodaj(null, null);
+        assertEquals(result, null);
+    }
 }
