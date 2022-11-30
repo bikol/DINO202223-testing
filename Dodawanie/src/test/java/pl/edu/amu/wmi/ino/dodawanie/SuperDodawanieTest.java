@@ -1,6 +1,7 @@
 package pl.edu.amu.wmi.ino.dodawanie;
 
 import java.util.Random;
+
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -83,5 +84,40 @@ public class SuperDodawanieTest {
         String result = SuperDodawanie.dodaj(a.toString(), b.toString());
         assertEquals(expResult, result);
     }
-    
+
+    @Test
+    public void testDodaj9()
+    {
+        System.out.println("Testing fractions...");
+
+        String a = "1/2";
+        String b = "-1/2";
+
+        String exp = "0.0";
+        assertEquals(exp, SuperDodawanie.dodaj(a, b));
+    }
+
+    @Test
+    public void testDodaj10()
+    {
+        System.out.println("Testing fractions...");
+
+        int n1, n2;
+        int d1, d2;
+        int bound = 50;
+
+        Random r = new Random();
+
+        n1 = r.nextInt(bound);
+        n2 = r.nextInt(bound);
+
+        d1 = r.nextInt(bound);
+        d2 = r.nextInt(bound);
+
+        String a = String.format("%d/%d", n1, d1);
+        String b = String.format("%d/%d", n2, d2);
+        float x = (float)n1 / (float)d1;
+        float y = (float)n2 / (float)d2;
+        assertEquals(String.valueOf(x+y), SuperDodawanie.dodaj(a, b));
+    }
 }
