@@ -1,5 +1,6 @@
 package pl.edu.amu.wmi.ino.dodawanie;
 
+import java.util.Arrays;
 import java.util.Random;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
@@ -82,4 +83,42 @@ public class SuperDodawanieTest {
         assertEquals(expResult, result);
     }
 
+    @Test
+    public void testDodaj6() { // int[] + int[]
+        System.out.println("dodaj");
+        String a = "[1, 2, 3]";
+        String b = "[ 21 , 3 , 5 , 5 ]";
+        String expResult = "[1, 2, 3, 21, 3, 5, 5]";
+        String result = SuperDodawanie.dodaj(a, b);
+        assertEquals(expResult, result);
+    }
+
+    @Test
+    public void testDodaj7() { // int[] + int[] Random length
+        System.out.println("dodaj");
+        Random r = new Random();
+
+        int[] arrA = { 2, 3, 4 };
+
+        int lenArrayB = 1 + r.nextInt(20);
+        int[] arrB = new int[lenArrayB];
+        for (int i = 0; i < lenArrayB; i++) {
+            int number = r.nextInt(10);
+            arrB[i] = number;
+        }
+
+        int[] arrExpResult = new int[lenArrayB + 3];
+        for (int i = 0; i < 3; i++) {
+            arrExpResult[i] = arrA[i];
+        }
+        for (int i = 3; i < lenArrayB + 3; i++) {
+            arrExpResult[i] = arrB[i - 3];
+        }
+
+        String a = Arrays.toString(arrA);
+        String b = Arrays.toString(arrB);
+        String expResult = Arrays.toString(arrExpResult);
+        String result = SuperDodawanie.dodaj(a, b);
+        assertEquals(expResult, result);
+    }
 }
