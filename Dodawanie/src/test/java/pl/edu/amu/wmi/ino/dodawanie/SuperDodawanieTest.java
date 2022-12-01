@@ -1,5 +1,6 @@
 package pl.edu.amu.wmi.ino.dodawanie;
 
+import java.beans.Transient;
 import java.util.Arrays;
 import java.util.Random;
 import org.junit.jupiter.api.Test;
@@ -84,7 +85,25 @@ public class SuperDodawanieTest {
     }
 
     @Test
-    public void testDodaj6() { // int[] + int[]
+    public void testDodaj6() {
+        String result = SuperDodawanie.dodaj(null, "1");
+        assertEquals(result, null);
+    }
+
+    @Test
+    public void testDodaj7() {
+        String result = SuperDodawanie.dodaj("xd", null);
+        assertEquals(result, null);
+    }
+
+    @Test
+    public void testDodaj8() {
+        String result = SuperDodawanie.dodaj(null, null);
+        assertEquals(result, null);
+    }
+
+    @Test
+    public void testDodaj9() { // int[] + int[]
         System.out.println("dodaj");
         String a = "[1, 2, 3]";
         String b = "[ 21 , 3 , 5 , 5 ]";
@@ -94,7 +113,7 @@ public class SuperDodawanieTest {
     }
 
     @Test
-    public void testDodaj7() { // int[] + int[] Random length
+    public void testDodaj10() { // int[] + int[] Random length
         System.out.println("dodaj");
         Random r = new Random();
 
