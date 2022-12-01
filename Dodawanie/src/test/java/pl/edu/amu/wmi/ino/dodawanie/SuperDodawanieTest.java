@@ -1,5 +1,6 @@
 package pl.edu.amu.wmi.ino.dodawanie;
 
+import java.beans.Transient;
 import java.util.Random;
 
 import org.junit.jupiter.api.Test;
@@ -86,6 +87,24 @@ public class SuperDodawanieTest {
     }
 
     @Test
+    public void testDodaj6(){
+        String result = SuperDodawanie.dodaj(null, "1");
+        assertEquals(result, null);
+    }
+
+    @Test
+    public void testDodaj7(){
+        String result = SuperDodawanie.dodaj("xd", null);
+        assertEquals(result, null);
+    }
+
+    @Test
+    public void testDodaj8(){
+        String result = SuperDodawanie.dodaj(null, null);
+        assertEquals(result, null);
+    }
+
+    @Test
     public void testDodaj9()
     {
         System.out.println("Testing fractions...");
@@ -98,8 +117,7 @@ public class SuperDodawanieTest {
     }
 
     @Test
-    public void testDodaj10()
-    {
+    public void testDodaj10() {
         System.out.println("Testing fractions...");
 
         int n1, n2;
@@ -116,8 +134,8 @@ public class SuperDodawanieTest {
 
         String a = String.format("%d/%d", n1, d1);
         String b = String.format("%d/%d", n2, d2);
-        float x = (float)n1 / (float)d1;
-        float y = (float)n2 / (float)d2;
-        assertEquals(String.valueOf(x+y), SuperDodawanie.dodaj(a, b));
+        float x = (float) n1 / (float) d1;
+        float y = (float) n2 / (float) d2;
+        assertEquals(String.valueOf(x + y), SuperDodawanie.dodaj(a, b));
     }
 }

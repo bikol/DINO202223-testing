@@ -57,6 +57,9 @@ public class SuperDodawanie {
     }
 
     public static String dodaj(String a, String b){
+        if (a == null || b == null){
+            return null;
+        }
 
         if(isInteger(a) && isInteger(b)){
             Integer x = Integer.parseInt(a);
