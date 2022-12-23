@@ -6,6 +6,7 @@
 package pl.edu.amu.wmi.ino.dodawanie;
 
 import java.util.Arrays;
+import java.util.StringTokenizer;
 import java.util.regex.Pattern;
 
 /**
@@ -36,6 +37,17 @@ public class SuperDodawanie {
         return true;
     }
 
+    public static boolean isLong(String s) {
+        try {
+            Long.parseLong(s);
+        } catch(NumberFormatException e) {
+            return false;
+        } catch(NullPointerException e) {
+            return false;
+        }
+        return true;
+    }
+
     public static boolean isArrayOfUint(String str) {
         if (Pattern.matches("\\[ *[0-9]+( *, *[0-9]+)* *\\]", str) == false) {
             return false;
@@ -61,14 +73,44 @@ public class SuperDodawanie {
         return result;
     }
 
+    public static boolean hasPower(String s) {
+        StringTokenizer st = new StringTokenizer(s, "^");
+        if(st.countTokens() == 2){
+            return true;
+        }
+        return false;
+    }
+
+    public static double parsePower(String s) {
+        StringTokenizer st = new StringTokenizer(s, "^");
+        Double num = Double.parseDouble(st.nextToken());
+        Double pow = Double.parseDouble(st.nextToken());
+        Double returnValue = Math.pow(num, pow);
+        return returnValue;
+    }
+
     public static String dodaj(String a, String b) {
         if (a == null || b == null) {
             return null;
         }
+
+        if(hasPower(a)){
+            a = String.valueOf(parsePower(a));
+        }
+        if(hasPower(b)){
+            b = String.valueOf(parsePower(b));
+        }
+
         if (isInteger(a) && isInteger(b)) {
             Integer x = Integer.parseInt(a);
             Integer y = Integer.parseInt(b);
             Integer ans = x + y;
+            return ans.toString();
+        }
+        if(isLong(a) && isLong(b)){
+            Long x = Long.parseLong(a);
+            Long y = Long.parseLong(b);
+            Long ans = x + y;
             return ans.toString();
         }
         if (isFloat(a) && isFloat(b)) {

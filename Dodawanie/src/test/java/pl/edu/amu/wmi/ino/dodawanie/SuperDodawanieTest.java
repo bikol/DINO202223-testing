@@ -140,4 +140,24 @@ public class SuperDodawanieTest {
         String result = SuperDodawanie.dodaj(a, b);
         assertEquals(expResult, result);
     }
+
+    @Test
+    public void testDodaj11() { // values bigger than int are added
+        System.out.println("dodaj");
+        String a = "2147483649";
+        String b = "2147483649";
+        String expResult = "4294967298";
+        String result = SuperDodawanie.dodaj(a, b);
+        assertEquals(expResult, result);
+    }
+
+    @Test
+    public void testDodaj12() { //simple numbers with power are added
+        System.out.println("dodaj");
+        String a = "2^2";
+        String b = "2^2";
+        String expResult = "8.0";
+        String result = SuperDodawanie.dodaj(a, b);
+        assertEquals(expResult, result);
+    }
 }
