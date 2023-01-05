@@ -177,7 +177,7 @@ public class SuperDodawanieTest {
     }
 
     @Test
-    public void testDodaj11() { // values bigger than int are added
+    public void testDodaj13() { // values bigger than int are added
         System.out.println("dodaj");
         String a = "2147483649";
         String b = "2147483649";
@@ -187,7 +187,7 @@ public class SuperDodawanieTest {
     }
 
     @Test
-    public void testDodaj12() { //simple numbers with power are added
+    public void testDodaj14() { //simple numbers with power are added
         System.out.println("dodaj");
         String a = "2^2";
         String b = "2^2";

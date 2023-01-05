@@ -114,15 +114,12 @@ public class SuperDodawanie {
         if (a == null || b == null) {
             return null;
         }
-
         if(hasPower(a)){
             a = String.valueOf(parsePower(a));
         }
         if(hasPower(b)){
             b = String.valueOf(parsePower(b));
         }
-
-
         if (isInteger(a) && isInteger(b)){
             Integer x = Integer.parseInt(a);
             Integer y = Integer.parseInt(b);
